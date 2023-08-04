@@ -1,20 +1,17 @@
-import video from "../data/video.js";
+import React from 'react';
+import VideoPlayer from './VideoPlayer';
+import VideoActions from './VideoActions';
+import ToggleCommentsButton from './ToggleCommentsButton';
+import { video } from '../data/video'; // Check the relative path to the video.js file
 
-function App() {
-  console.log("Here's your data:", video);
-
+const App = () => {
   return (
-    <div className="App">
-      <iframe
-        width="919"
-        height="525"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        frameBorder="0"
-        allowFullScreen
-        title="Thinking in React"
-      />
+    <div>
+      <VideoPlayer video={video} />
+      <VideoActions video={video} />
+      <ToggleCommentsButton comments={video.comments} />
     </div>
   );
-}
+};
 
 export default App;
